@@ -1,7 +1,7 @@
 'use strict';
 
 var homeController = testApp.controller("homeController",['$rootScope','$scope','$log','testServices',function($rootScope,$scope,$log,testServices){
-	
+	var vm = this;
 	$scope.listOptions = {
 		enableFiltering:true,
 		enableSorting:true,
@@ -17,7 +17,7 @@ var homeController = testApp.controller("homeController",['$rootScope','$scope',
 		]
 	};
 
-	function getStudentsList(){
+	vm.getStudentsList = function (){
 		var listPromise = testServices.getStudents();
 		listPromise.then(function(resp){
 			if(resp){
@@ -32,6 +32,6 @@ var homeController = testApp.controller("homeController",['$rootScope','$scope',
 		alert("The parent controller method is called");
 	}
 
-	getStudentsList();
+	vm.getStudentsList();
 
 }])
