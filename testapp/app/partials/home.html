@@ -1,0 +1,32 @@
+<div>
+	<div class="header"><h2>Welcome !!</h2></div>
+	<div>
+		<h3>Students List Grid</h3>
+		<div id="studentsGrid" ui-grid="listOptions" class="grid" ui-grid-pagination class="grid"></div>
+
+		<h3>Students Bootstrap Table</h3>
+		<div class="table-responsive ">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Student Id</th>
+						<th>Student Name</th>
+						<th>Department</th>
+						<th>Joining Date</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody data-ng-repeat="student in listOptions.data" data-ng-model="listOptions.data">
+					<tr>
+						<td>{{::student.id}}</td>
+						<td>{{::student.name}}</td>
+						<td>{{::student.dept}}</td>
+						<td>{{::student.joinDate|date:"MM/dd/yyyy"}}</td>
+						<td><button type="button" class="btn btn-primary" test-modal confirm="printAlert()" status="{{student.status}}">status</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
